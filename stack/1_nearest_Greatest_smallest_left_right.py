@@ -80,7 +80,7 @@ def nearest_smallest_element_to_left(arr, implementation_type="OPT"):
     else:
         stack = list()
         for i in range(len(arr)):
-            while len(stack) > 0 and arr[i] < stack[0]:
+            while len(stack) > 0 and arr[i] <= stack[0]:
                 stack.pop(0)
             result_array[i] = -1 if len(stack) == 0 else stack[0]
             stack.insert(0, arr[i])
@@ -103,8 +103,8 @@ def nearest_smallest_element_to_right(arr, implementation_type="OPT"):
     else:
         stack = list()
         for i in range(len(arr) - 1, -1, -1):
-            while len(stack) > 0 and arr[i] < stack[0]:
-                stack.pop()
+            while len(stack) > 0 and arr[i] <= stack[0]:
+                stack.pop(0)
             res_arr[i] = -1 if len(stack) == 0 else stack[0]
             stack.insert(0, arr[i])
     return res_arr
@@ -117,7 +117,7 @@ if __name__ == '__main__':
                           "Enter 4 for  nearest smallest element to right\n"))
     input_opt = input("Enter BF for Brute Force Implementation and OPT or anything else for optimal implementation\n")
     input_ = input("Enter the array elements separated by comma\n")
-    array_input = [elm for elm in input_.split(',')]
+    array_input = [int(elm) for elm in input_.split(',')]
     result = []
     if input_num == 1:
         result = nearest_greatest_element_to_left(array_input, input_opt)
