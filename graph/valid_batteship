@@ -1,0 +1,5 @@
+def isValid_board(grid)->
+
+
+def isValid(i,j):
+    if i<0 or j<0 or i>=col or

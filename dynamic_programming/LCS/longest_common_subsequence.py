@@ -23,9 +23,10 @@ def longest_common_subsequence_tabularization(s1, s2, n, m):
                 dp_table[i][j] = 0
                 continue
             if s1[i - 1] == s2[j - 1]:
-                dp_table[i][j] = 1 + dp_table[i-1][j-1]
+                dp_table[i][j] = 1 + dp_table[i - 1][j - 1]
             else:
-                dp_table[i][j] = max(dp_table[i][j-1], dp_table[i-1][j])
+                dp_table[i][j] = max(dp_table[i][j - 1], dp_table[i - 1][j])
     return dp_table[n][m]
+
 
 print(longest_common_subsequence_tabularization(s1, s2, len(s1), len(s2)))

@@ -2,8 +2,10 @@
 Print all possible LCS.
 """
 
-s1 = "fabmncd"
-s2 = "fmnabd"
+# s1 = "fabmncd"
+# s2 = "fmnabd"
+s1 = "abcdefgh"
+s2 = "efghabcd"
 from typing import List
 
 
@@ -47,7 +49,7 @@ def print_lcs_tabularization_dict(s1, s2, n, m, dp_table):
         op1 = print_lcs_tabularization_dict(s1, s2, n, m - 1, dp_table)
         op2 = print_lcs_tabularization_dict(s1, s2, n - 1, m, dp_table)
         if len(op1[0]) == len(op2[0]):
-            op =(*op1, *op2)
+            op =(*op1, *op2)  # extend and not merge
             dp_table[key] = op
             return op
         res = op1 if len(op1[0]) > len(op2[0]) else op2

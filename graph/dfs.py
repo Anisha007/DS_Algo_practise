@@ -4,13 +4,16 @@ all the corresponding
 """
 
 
-def dfs(graph, visited, node):
-    if not node:
-        return
-    if not visited[node]:
-        print(node)
-        visited[node] = True
-        for child in graph[node.val]:
-            dfs(graph, visited, child)
+def dfs(source, graph, visited):
+    if visited[source] != 0:
+        return []
+    visited[source] = 1
+    nodelist = []
+    for neighbour in graph[source]:
+        nodelist.append(dfs(neighbour, graph, visited))
+    visited[source] = 2
+    nodelist.append(source)
+    return nodelist
+
 
 

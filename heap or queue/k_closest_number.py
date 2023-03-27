@@ -12,7 +12,7 @@ def solve(nums: List[int], k: int, n: int) -> List[int]:
     print(nums_mod)
     for (i, ele) in enumerate(nums_mod[:k]):
         print(i)
-        heap_ds.append((ele, i))
+        heap_ds.append((ele, i))  # here we are pushing the items in pair in heap
     heapq.heapify(heap_ds)
     print("heap ds = ", heap_ds)
     for (i, ele) in enumerate(nums_mod[k:]):
@@ -25,4 +25,4 @@ def solve(nums: List[int], k: int, n: int) -> List[int]:
     return res
 
 
-print(solve([2,5,7,9,8,6,4,2,1], 3, 5))
+print(solve([2, 5, 7, 9, 8, 6, 4, 2, 1], 3, 5))
